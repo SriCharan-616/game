@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/common/Navbar";
+import Background from "./components/common/Background"; 
 import ProblemList from "./components/ProblemList";
 import ProblemDetails from "./components/ProblemDetails";
 import RegisterForm from "./components/RegisterForm";
@@ -9,11 +10,12 @@ import HomePage from "./components/HomePage";
 import PSPage from "./components/PSPage";
 import GamesPage from "./components/GamesPage";
 import LearnPage from "./components/LearnPage";
-import "./styles/styles.css"; // ✅ Import styles
+import "./components/styles/styles.css"; 
 
 const App = () => {
   return (
     <Router>
+      <Background /> 
       <Navbar />
       <div className="container">
         <Routes>

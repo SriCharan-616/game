@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { loginUser } from "../api"; // API function for login
-import "./LoginPage.css"; // Import CSS
+import "./styles/LoginPage.css"; // Import CSS
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -31,7 +30,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2 style={{ color: "#39bdd6" }}>Login</h2>
       <form className="login-form" onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
@@ -56,7 +55,7 @@ const LoginPage = () => {
         </button>
       </form>
       <p className="register-link">
-        Don't have an account? <a href="/register">Register here</a>
+        <a href="/register">Don't have an account?  Register here</a>
       </p>
     </div>
   );

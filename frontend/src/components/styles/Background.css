@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Apply styles to the entire page */
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #000016, #001f2d);
+  color: white;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensures full height */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Background Container (Scrolls with content) */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  z-index: -1; /* Keeps it behind content */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: none; /* Prevents interference with clicks */
+}
+
+/* Golden Ratio Grid */
+.golden-ratio {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  aspect-ratio: 1.618 / 1; /* Golden ratio aspect */
+  background: transparent;
+  border: 2px solid rgba(57, 189, 214, 0.2);
+  box-shadow: 0 0 10px rgba(57, 189, 214, 0.3);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 61.8% 100%, 61.8% 61.8%, 0% 61.8%);
+  transition: all 0.4s ease-in-out;
+  pointer-events: auto; /* Allow hover effects */
+}
+
+/* Hover Glow Effect */
+.golden-ratio:hover {
+  box-shadow: 0 0 30px #39bdd6;
+  border-color: #39bdd6;
+  transform: scale(1.05);
+}
+
+/* Smooth Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.golden-ratio {
+  animation: fadeIn 1s ease-out;
+}

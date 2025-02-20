@@ -1,0 +1,46 @@
+.visualizer {
+    text-align: center;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(30, 20px);
+    grid-template-rows: repeat(20, 20px);
+    margin: 20px auto;
+  }
+  
+  .cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    display: inline-block;
+  }
+  
+  .cell.empty {
+    background: white;
+  }
+  
+  .cell.start {
+    background: green;
+  }
+  
+  .cell.end {
+    background: red;
+  }
+  
+  .cell.wall {
+    background: black;
+  }
+  
+  .cell.visited {
+    background: lightblue;
+  }
+  
+  .cell.path {
+    background: yellow;
+  }
+  
+.cell.player { background: blue; }
+.cell.goal { background: gold; }
+.cell.ai { background: red; }
+.cell.wall { background: black; }

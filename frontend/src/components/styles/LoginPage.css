@@ -1,0 +1,144 @@
+/* General Page Styling */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #0a0a0a 50%, #000000 100%);
+  color: #39bdd6; 
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  padding: 20px;
+}
+
+/* Heading */
+.login-page h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  color: #39bdd6;
+  text-shadow: 0px 0px 8px #39bdd6;
+}
+
+/* LOGIN SECTION */
+.login-container {
+  margin: 10px 350px;
+  padding: 30px;
+  background: linear-gradient(145deg, #222, #181818);
+  border-radius: 15px;
+  box-shadow:
+    0 0 10px #39bdd6,
+    0 0 20px #39bdd6 inset;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.login-form label {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color:#39bdd6;
+}
+
+/* Inputs */
+.login-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #39bdd6;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #111;
+  color: #f0f2f3;
+  transition: border 0.3s;
+}
+
+.login-form input:focus {
+  border-color: #39bdd6;
+  outline: none;
+  box-shadow: 0px 0px 10px #39bdd6;
+}
+
+/* LOGIN BUTTON */
+.login-button {
+  background: #39bdd6;
+  color: #000;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.login-button:hover {
+  background: #39bdd6;
+  box-shadow: 0px 0px 15px #39bdd6;
+}
+
+/* Ripple Effect */
+.login-button:active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #39bdd6;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.4s linear;
+}
+
+.login-container h1{
+  color: "#00ff00";
+}
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Disabled Button */
+.login-button:disabled {
+  background: #015607;
+  cursor: not-allowed;
+}
+
+/* Register Link */
+.register-link {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #39bdd6;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+  color: #cfc;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+  }
+}

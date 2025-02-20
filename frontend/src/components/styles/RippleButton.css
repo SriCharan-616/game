@@ -1,0 +1,58 @@
+/* Full-screen container with Nether Portal effect */
+.portal-ripple-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 20vw;
+  background: linear-gradient(45deg, #400080, #8000ff, #400080);
+  background-size: 200% 200%;
+  animation: swirl 3s infinite linear;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 40px 15px purple;
+}
+
+/* Nether portal animation */
+@keyframes swirl {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Button styling */
+.ripple-button {
+  position: relative;
+  z-index: 2;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.ripple-button:active {
+  transform: scale(0.95);
+}
+
+/* Full-screen ripple effect */
+.fullscreen-ripple {
+  position: fixed;
+  background: rgba(0, 123, 255, 0.8);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: fullscreen-ripple-animation 1s ease-out forwards;
+  z-index: 1;
+}
+
+/* Smooth scaling animation */
+@keyframes fullscreen-ripple-animation {
+  to {
+    transform: scale(5);
+    opacity: 0;
+  }
+}

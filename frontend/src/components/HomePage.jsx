@@ -1,53 +1,51 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useNavigate, Link } from "react-router-dom";
+import "./styles/HomePage.css"; // Ensure this file contains the animations
+import RippleButton from "./RippleButton"; // Import the ripple effect button
 
 const HomePage = () => {
-  const [showLoginOptions, setShowLoginOptions] = useState(false);
-  const [showNFTOptions, setShowNFTOptions] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/login"); // Navigate to login page
+  };
 
   return (
     <div className="home-page">
-      <h1>Welcome to Gamified Learning!</h1>
-      
+      {/* HERO SECTION */}
+      <header className="hero-section">
+        <h1>
+          Welcome to <span>Gamified Learning</span>
+        </h1>
+        <p>Level up your skills through interactive games and challenges.</p>
+      </header>
+
       {/* LOGIN SECTION */}
-      <div className="login-section">
-        <button onClick={() => setShowLoginOptions(!showLoginOptions)}>Login</button>
-
-        {showLoginOptions && (
-          <div className="login-options">
-            <button onClick={() => setShowNFTOptions(true)}>Learner</button>
-            <button onClick={() => setShowNFTOptions(true)}>Content Creator</button>
-          </div>
-        )}
-
-        {showNFTOptions && (
-          <div className="nft-options">
-            <Link to="/login/nft">Login with NFT (Wallet ID)</Link>
-            <Link to="/login/email">Login without NFT (Email ID)</Link>
-          </div>
-        )}
-      </div>
+      <section className="login-section">
+        {/* Use the RippleButton component with navigation */}
+        <RippleButton onClick={handleLoginClick} />
+      </section>
 
       {/* EXPLORE SECTION */}
-      <div className="explore-section">
-        <h2>Explore</h2>
+      <section className="explore-section">
+        <h2>Discover Your Path</h2>
         <div className="explore-options">
           <Link to="/games" className="explore-item">
-            <h3>🎮 Games</h3>
-            <p>Play interactive educational games!</p>
+            <h3>Games</h3>
+            <p>Play interactive educational games and have fun while learning.</p>
           </Link>
 
           <Link to="/learn" className="explore-item">
-            <h3>📚 Learn</h3>
-            <p>Enhance your knowledge with our resources.</p>
+            <h3>Learn</h3>
+            <p>Dive into knowledge with curated learning resources.</p>
           </Link>
 
           <Link to="/problems" className="explore-item">
-            <h3>🧩 Problems</h3>
-            <p>Challenge yourself with coding problems.</p>
+            <h3>Problems</h3>
+            <p>Challenge yourself with coding problems and puzzles.</p>
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
