@@ -185,8 +185,21 @@ const LearnPage = () => {
     <div className="learn-page">
       <h1>Pathfinding Algorithm Visualizer</h1>
       <GridVisualizer algorithm="BFS" title="Breadth-First Search (BFS)" />
+      <p>Explores all nodes layer by layer (equal distance from the start).
+        Uses a queue (FIFO) to track nodes.
+        Guarantees the shortest path only for unweighted grids.
+        Does not consider movement cost, just steps.</p>
       <GridVisualizer algorithm="Dijkstra" title="Dijkstra’s Algorithm" />
+      <p>Expands from the start node, always choosing the least-cost node.
+Uses a priority queue to track nodes with the lowest cost.
+Guarantees the shortest path for weighted and unweighted grids.
+Explores all possible paths until reaching the goal.</p>
       <GridVisualizer algorithm="A*" title="A* Algorithm" />
+      <p>Like Dijkstra, but adds a heuristic (estimated distance to goal) to prioritize paths.
+Uses both cost so far + estimated cost to guide the search efficiently.
+Faster than Dijkstra because it is goal-directed.
+Guarantees the shortest path if the heuristic is admissible (doesn’t overestimate).
+      </p>
     </div>
   );
 };

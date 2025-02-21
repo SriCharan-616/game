@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerUser } from "./api";
+import { registerUser } from "../api/api";  // Adjust path if needed
 import "./styles/RegisterForm.css";
 
 const RegisterForm = () => {
