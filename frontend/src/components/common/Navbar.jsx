@@ -10,13 +10,14 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h3>Navbar Loaded</h3> {/* Debugging statement */}
+      <h3>Gamified Learning</h3> 
       <div className="nav-left">
         <Link to="/">Home</Link>
         <Link to="/problems">Problems</Link>
         <Link to="/learn">Learn</Link>
         <Link to="/games">Games</Link>
         <Link to="/ps">Problem Solving</Link>
+        <Link to="/market">Market</Link>
       </div>
       <div className="nav-right">
         {user ? <Link to="/user">{user.name}</Link> : <Link to="/login">Login</Link>}

@@ -1,0 +1,26 @@
+.heuristic-demo {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .heuristic-demo .grid {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .heuristic-demo .node {
+    width: 40px;
+    height: 40px;
+    border: 2px dashed black;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .heuristic-demo .node:hover {
+    transform: scale(1.2);
+    background-color: #f8d7da;
+  }
+  

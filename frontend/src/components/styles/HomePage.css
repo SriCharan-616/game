@@ -27,7 +27,7 @@
   margin: 20px 0;
   padding: 20px;
   background: linear-gradient(145deg, #222, #181818);
-  border-radius: 15px;
+  border-radius: 15px; /*remove to make portal square*/
   box-shadow: 
     0 0 10px rgba(0, 255, 255, 0.3),
     0 0 20px rgba(0, 255, 255, 0.2) inset;

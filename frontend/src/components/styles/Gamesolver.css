@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.ps-container {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 10px;
+  width: 80%;
+  margin: auto;
+  box-shadow: 0 0 15px #39bdd6;
+}
+
+/* Code Editor Styling */
+.code-editor {
+  border: 2px solid #39bdd6;
+  border-radius: 5px;
+  margin-top: 10px;
+  background: #1a1a2e;
+  color: #39bdd6;
+  padding: 10px;
+}
+
+/* Run Button */
+.run-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #39bdd6;
+  border: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.run-button:hover {
+  background: white;
+  color: black;
+  box-shadow: 0 0 10px #39bdd6;
+}
+
+/* Output Box */
+.output {
+  margin-top: 20px;
+  padding: 15px;
+  background: #001f2d;
+  color: #39bdd6;
+  border: 1px solid #39bdd6;
+  border-radius: 5px;
+}

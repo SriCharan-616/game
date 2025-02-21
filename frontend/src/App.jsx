@@ -11,6 +11,7 @@ import PSPage from "./components/PSPage";
 import GamesPage from "./components/GamesPage";
 import LearnPage from "./components/LearnPage";
 import "./components/styles/styles.css"; 
+import Gamesolver from "./components/Gamesolver";
 
 const App = () => {
   return (
@@ -21,10 +22,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/problems" element={<ProblemList />} />
-          <Route path="/problem/:problemId" element={<ProblemDetails />} />
+          <Route path="/problem/:problemId" element={<PSPage />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/ps" element={<PSPage />} />
+          <Route path="/ps" element={<Gamesolver />} />
           <Route path="/games" element={<GamesPage />} />
           <Route path="/learn" element={<LearnPage />} />
         </Routes>

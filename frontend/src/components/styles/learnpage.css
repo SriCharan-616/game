@@ -1,0 +1,16 @@
+.learn-container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  ul {
+    text-align: left;
+    list-style-type: square;
+    margin-left: 20px;
+  }
+  

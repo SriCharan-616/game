@@ -1,0 +1,43 @@
+.simulation {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .simulation .grid {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .simulation .node {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+  }
+  
+  .simulation .node.visited {
+    background-color: lightblue;
+  }
+  
+  .simulation .node.path {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  
+  .simulation button {
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .simulation button:hover {
+    background-color: #0056b3;
+  }
+  
