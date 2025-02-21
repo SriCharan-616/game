@@ -53,3 +53,33 @@
     background-color: lightblue;
   }
 }
+/* .learn-page {
+  text-align: center;
+}
+
+.grid-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: inline-block;
+  margin: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.node {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+}
+
+.wall { background: black; }
+.visited { background: lightblue; }
+.path { background: gold; }
+.start { background: green; }
+.goal { background: red; } */

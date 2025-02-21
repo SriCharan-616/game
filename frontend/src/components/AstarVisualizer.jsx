@@ -178,7 +178,7 @@ const AstarGame = () => {
     <div className="visualizer">
       <h2>Escape the AI!</h2>
       <p>Moves: {moves}</p>
-      <div className="grid">
+      <div className="grid-game">
         {grid.map((row, rowIndex) =>
           row.map((cell, colIndex) => (
             <div key={`${rowIndex}-${colIndex}`} className={`cell ${cell.type}`} onClick={() => handleCellClick(rowIndex, colIndex)} />

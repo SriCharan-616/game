@@ -2,8 +2,8 @@
     text-align: center;
   }
   
-  .grid {
-    display: grid;
+  .grid-game{
+    display: inline-grid;
     grid-template-columns: repeat(30, 20px);
     grid-template-rows: repeat(20, 20px);
     margin: 20px auto;

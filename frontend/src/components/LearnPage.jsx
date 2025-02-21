@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./styles/LearnPage.css";
 
-const rows = 10;
-const cols = 10;
+const rows = 5;
+const cols = 5;
 
-// Manhattan distance heuristic for A*
 const heuristic = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 
-// Generate grid with walls, start, and goal
 const generateGrid = () => {
   const grid = [];
   for (let r = 0; r < rows; r++) {
@@ -28,10 +26,9 @@ const generateGrid = () => {
   return grid;
 };
 
-const LearnPage = () => {
+const GridVisualizer = ({ algorithm, title }) => {
   const [grid, setGrid] = useState(generateGrid);
   const [running, setRunning] = useState(false);
-  const [algorithm, setAlgorithm] = useState("A*");
   const [startNode, setStartNode] = useState({ x: 0, y: 0 });
   const [goalNode, setGoalNode] = useState({ x: rows - 1, y: cols - 1 });
 
@@ -87,7 +84,7 @@ const LearnPage = () => {
       setGrid([...grid]);
       await new Promise(resolve => setTimeout(resolve, 50));
 
-      if (current === goalNode) break;
+      if (current.x === goalNode.x && current.y === goalNode.y) break;
       for (const neighbor of getNeighbors(current)) {
         if (!(neighbor.x + "," + neighbor.y in cameFrom)) {
           queue.push(neighbor);
@@ -108,7 +105,7 @@ const LearnPage = () => {
       setGrid([...grid]);
       await new Promise(resolve => setTimeout(resolve, 50));
 
-      if (current === goalNode) break;
+      if (current.x === goalNode.x && current.y === goalNode.y) break;
       for (const neighbor of getNeighbors(current)) {
         const newCost = costSoFar[current.x + "," + current.y] + 1;
         if (!(neighbor.x + "," + neighbor.y in costSoFar) || newCost < costSoFar[neighbor.x + "," + neighbor.y]) {
@@ -131,7 +128,7 @@ const LearnPage = () => {
       setGrid([...grid]);
       await new Promise(resolve => setTimeout(resolve, 50));
 
-      if (current === goalNode) break;
+      if (current.x === goalNode.x && current.y === goalNode.y) break;
       for (const neighbor of getNeighbors(current)) {
         const newCost = costSoFar[current.x + "," + current.y] + 1;
         if (!(neighbor.x + "," + neighbor.y in costSoFar) || newCost < costSoFar[neighbor.x + "," + neighbor.y]) {
@@ -144,51 +141,36 @@ const LearnPage = () => {
     }
   };
 
-  const handleCellClick = (row, col) => {
-    if (running) return;
-    const newGrid = grid.map(row => row.map(cell => ({ ...cell })));
+  const handleReset = () => {
+    setGrid(generateGrid());
+  };
 
-    if (newGrid[row][col].isStart) {
-      setStartNode({ x: row, y: col });
-    } else if (newGrid[row][col].isGoal) {
-      setGoalNode({ x: row, y: col });
-    } else {
-      newGrid[row][col].isWall = !newGrid[row][col].isWall;
-    }
-
-    setGrid(newGrid);
+  const handleCellClick = (rowIdx, colIdx) => {
+    setGrid((prevGrid) => {
+      return prevGrid.map((row, rIdx) =>
+        row.map((node, cIdx) => {
+          if (rIdx === rowIdx && cIdx === colIdx) {
+            return { ...node, isWall: !node.isWall }; // Toggle wall state
+          }
+          return node;
+        })
+      );
+    });
   };
 
   return (
-    <div className="learn-page">
-      <h1>Pathfinding Algorithm Visualizer</h1>
-
-      <section>
-        <h2>Breadth-First Search (BFS)</h2>
-        <p>BFS expands outward equally from the starting point.</p>
-        <button onClick={() => setAlgorithm("BFS")}>Visualize BFS</button>
-      </section>
-
-      <section>
-        <h2>Dijkstra’s Algorithm</h2>
-        <p>Dijkstra’s Algorithm accounts for movement costs.</p>
-        <button onClick={() => setAlgorithm("Dijkstra")}>Visualize Dijkstra</button>
-      </section>
-
-      <section>
-        <h2>A* Algorithm</h2>
-        <p>A* combines the efficiency of Dijkstra’s Algorithm with goal orientation.</p>
-        <button onClick={() => setAlgorithm("A*")}>Visualize A*</button>
-      </section>
-
+    <div className="grid-container">
+      <h2>{title}</h2>
       <button onClick={visualizeAlgorithm} disabled={running}>Run {algorithm}</button>
-
+      <button onClick={handleReset} disabled={running}>Reset Grid</button>
       <div className="grid">
         {grid.map((row, rowIdx) => (
           <div key={rowIdx} className="row">
             {row.map((node, colIdx) => (
-              <div key={colIdx} onClick={() => handleCellClick(rowIdx, colIdx)}
+              <div
+                key={colIdx}
                 className={`node ${node.isWall ? "wall" : ""} ${node.visited ? "visited" : ""} ${node.path ? "path" : ""} ${node.isStart ? "start" : ""} ${node.isGoal ? "goal" : ""}`}
+                onClick={() => handleCellClick(rowIdx, colIdx)}
               ></div>
             ))}
           </div>
@@ -198,4 +180,16 @@ const LearnPage = () => {
   );
 };
 
+const LearnPage = () => {
+  return (
+    <div className="learn-page">
+      <h1>Pathfinding Algorithm Visualizer</h1>
+      <GridVisualizer algorithm="BFS" title="Breadth-First Search (BFS)" />
+      <GridVisualizer algorithm="Dijkstra" title="Dijkstra’s Algorithm" />
+      <GridVisualizer algorithm="A*" title="A* Algorithm" />
+    </div>
+  );
+};
+
 export default LearnPage;
+
