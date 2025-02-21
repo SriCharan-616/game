@@ -1,16 +1,55 @@
-.learn-container {
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.node {
+  width: 30px;
+  height: 30px;
+  border: 2px solid black;
+  display: inline-block;
+  background: aliceblue;
+  transition: background-color 0.3s;
+}
+
+/* Start and Goal Nodes */
+.node.start {
+  background-color: green;
+}
+
+.node.goal {
+  background-color: red;
+}
+
+/* Walls */
+.node.wall {
+  background-color: black;
+}
+
+/* Nodes that have been visited */
+.node.visited {
+  background-color: lightblue;
+  animation: expand 0.3s ease-in-out;
+}
+
+/* Shortest Path */
+.node.path {
+  background-color: rgb(19, 235, 8);
+  animation: expand 0.3s ease-in-out;
+}
+
+/* Smooth animation for visited and path nodes */
+@keyframes expand {
+  from {
+    background-color: white;
   }
-  
-  h2 {
-    color: #333;
+  to {
+    background-color: lightblue;
   }
-  
-  ul {
-    text-align: left;
-    list-style-type: square;
-    margin-left: 20px;
-  }
-  
+}
