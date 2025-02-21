@@ -1,4 +1,4 @@
-# gamified-learning-platform
+# Gamified-learning-platform
 
 My project is a gamified learning platform integrated with blockchain. The platform allows learners to play a game where they actively engage with the course content. As they progress through the game, they learn how to apply the course material in a fun and interactive way. After completing the game, learners will have access to a solver tool to further practice and apply their knowledge.
 
